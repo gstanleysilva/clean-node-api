@@ -103,7 +103,7 @@ describe('SignUp Controller', () => {
   test('Should call email validator with correct email', () => {
     const { sut, emailValidatorStup } = makeSut()
 
-    // Spy method isValid of this instance and mock the return value to false
+    // Get the spy for the isValid method
     const isValidSpy = jest.spyOn(emailValidatorStup, 'isValid')
 
     const httpRequest = {
@@ -114,7 +114,10 @@ describe('SignUp Controller', () => {
         passwordConfirmation: 'any_password'
       }
     }
+
     sut.handle(httpRequest)
+
+    // Check if the email was passed correctly to the isValid function inside our test
     expect(isValidSpy).toHaveBeenCalledWith('any_email@main.com')
   })
 })
