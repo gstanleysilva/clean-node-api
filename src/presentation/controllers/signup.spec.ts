@@ -40,7 +40,7 @@ const makeSut = (): SutTypes => {
 describe('SignUp Controller', () => {
   test('Should return 400 if no name is provided', () => {
     const { sut } = makeSut()
-    const httpRequest = {
+    const httpRequest = { 
       body: {
         email: 'any_email@main.com',
         password: 'any_password',
